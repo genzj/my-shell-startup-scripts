@@ -1,0 +1,10 @@
+#cvs settings
+export CVSROOT=jiezhu2@sacnsasrdfbs01.cisco.com:/home/cvsroot
+export CVS_RSH=ssh
+export EDITOR=vim
+export SSH_SERVER=${CVSROOT%%:*}
+
+#this line is for klocwork 8
+#export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/share/kw8/user/bin
+
+
