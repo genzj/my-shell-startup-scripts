@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/jason/Projects/Docsis_Transponder/under_cvs/trunk/BFC4.4.6/cm_bsp_v2/bsp_common/CmHal/bcm3378'
+let g:netrw_dirhist_2='/home/jason/Projects/Docsis_Transponder/under_cvs/trunk/BFC4.4.6/cm_bsp_v2/bsp_common/CmHal'
+let g:netrw_dirhist_3='/home/jason/Documents/BaiduZhidao'
