@@ -122,6 +122,13 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+if has("win32")
+	" no default dict for win32
+else
+	set dict+=/usr/share/dict/*
+	set complete+=k
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" CTags
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
