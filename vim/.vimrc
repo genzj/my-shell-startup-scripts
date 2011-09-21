@@ -183,6 +183,10 @@ noremap <C-Tab> <C-W>w
 "Jump to next window
 noremap <C-S-Tab> <C-W>W
 "Jump to prev window
+nnoremap <silent> <up> :wincmd k<CR>
+nnoremap <silent> <down> :wincmd j<CR>
+nnoremap <silent> <right> :wincmd l<CR>
+nnoremap <silent> <left> :wincmd h<CR>
 
 nnoremap <F3> :Explore<CR>
 "Open Netrw explorer
