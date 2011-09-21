@@ -14,6 +14,15 @@
 "  finish
 " endif
 
+" Set environment variables to make things easy
+if has("win32")
+	" Use vimfiles folder under the installation directory
+	let $VIMFILES=$VIM.'/vimfiles'
+else
+	" Use the .vim directory under my home folder
+	let $VIMFILES=$HOME.'/.vim'
+endif
+
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -122,12 +131,17 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+" Dictionaries
 if has("win32")
 	" no default dict for win32
 else
 	set dict+=/usr/share/dict/*
 	set complete+=k
 endif
+
+" omni cpp STL completion tag
+let $STLTAG=$VIMFILES."/tags/cpp.tag"
+set tags+=$STLTAG
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" CTags
