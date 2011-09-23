@@ -20,7 +20,9 @@ alias grep='grep -n --color=always'
 alias egrep='egrep -n --color=always'
 alias fgrep='fgrep -n --color=always'
 ##################################################
-
+#
+#-------------- ctags for omni completion -------#
+alias ctags-omni='ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++'
 
 
 ##################################################
