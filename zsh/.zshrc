@@ -17,7 +17,15 @@ compinit
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=500
+
+# Notify immediately when a background job finishes
 setopt notify
+
+# Ignore and remove all duplicate lines from histroy file.
+setopt histignorealldups
+# Prevent saving commands begin with space
+setopt histignorespace
+
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
