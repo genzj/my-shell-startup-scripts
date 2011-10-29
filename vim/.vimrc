@@ -241,3 +241,10 @@ inoremap <expr> k			pumvisible()?"\<Up>":"k"
 
 noremap <leader>zw	<C-W>=1<C-W><C-W>1<C-W>_
 nnoremap <space>	Lzt
+
+"Add quotes, parentheses or brcakets around chosen text
+"For brackets ({), chosen text will also be formatted
+vnoremap <leader>"    <esc>`>a"<esc>`<i"<esc>``
+vnoremap <leader>'    <esc>`>a'<esc>`<i'<esc>``
+vnoremap <leader>(    <esc>`>a)<esc>`<i(<esc>``
+vnoremap <leader>{    <esc>`>a}<esc>`<i{<esc>=a{``
