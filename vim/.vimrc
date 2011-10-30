@@ -114,7 +114,7 @@ if has("autocmd")
   augroup END
 
   "When .vimrc isedited, reload it
-  autocmd! bufwritepost .vimrc source ~/.vimrc
+  autocmd! bufwritepost $MYVIMRC source $MYVIMRC
 else
 
   set autoindent		" always set autoindenting on
