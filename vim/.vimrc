@@ -1,19 +1,12 @@
 " An example for a vimrc file.
 "
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Jul 02
-"
 " To use it, copy it to
 "     for Unix and OS/2:  ~/.vimrc
 "	      for Amiga:  s:.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
-" When started as "evim", evim.vim will already have done these settings.
-" if v:progname =~? "evim"
-"  finish
-" endif
-
+" VIM files location setting ---------------- {{{
 " Set environment variables to make things easy
 if has("win32")
 	" Use vimfiles folder under the installation directory
@@ -22,7 +15,9 @@ else
 	" Use the .vim directory under my home folder
 	let $VIMFILES=$HOME.'/.vim'
 endif
+" }}}
 
+" Vim option settings ---------- {{{
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -85,6 +80,9 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+" }}}
+
+" Auto commands -------------------- {{{
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -101,6 +99,10 @@ if has("autocmd")
 
 	  " For all text files set 'textwidth' to 78 characters.
 	  autocmd FileType text setlocal textwidth=78
+
+	  " Auto fold my vimrc file
+	  autocmd BufReadPost $MYVIMRC setlocal foldmethod=marker
+	  autocmd BufReadPost $MYVIMRC setlocal foldlevel=0
 
 	  " When editing a file, always jump to the last known cursor position.
 	  " Don't do it when the position is invalid or when inside an event handler
@@ -131,7 +133,9 @@ else
   set cindent		" C-style indent
 
 endif " has("autocmd")
+" }}}
 
+" DiffOrig command -------------------- {{{
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
@@ -139,22 +143,21 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+" }}}
 
-" Dictionaries
+" Dictionaries -------------------- {{{
 if has("win32")
 	" no default dict for win32
 else
 	set dict+=/usr/share/dict/*
 	set complete+=k
 endif
+" }}}
 
+"" CTags -------------------- {{{
 " omni cpp STL completion tag
 let $STLTAG=$VIMFILES."/tags/cpp.tag"
 set tags+=$STLTAG
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" CTags
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 "" Auto finding
 "set tags=tags;
@@ -184,16 +187,18 @@ set tags+=$STLTAG
 "Cscope Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "source $VIM/addons/plugin/cscope_map.vim
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Taglist and Mappings
+"Taglist and Mappings -------------------- {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let Tlist_Ctags_Cmd='/usr/bin/ctags'	"ctags command
 let Tlist_Show_One_File = 1			"Show only current file
 let Tlist_Exit_OnlyWindow = 1		"Exit when tag list is the only window
 let Tlist_Use_Right_Window = 1		"Put tag list window at right of screen
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Mappings
+" }}}
+
+"Key Mappings -------------------- {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Set mapleader
 let mapleader = ","
@@ -257,3 +262,4 @@ vnoremap <leader>"    <esc>`>a"<esc>`<i"<esc>``
 vnoremap <leader>'    <esc>`>a'<esc>`<i'<esc>``
 vnoremap <leader>(    <esc>`>a)<esc>`<i(<esc>``
 vnoremap <leader>{    <esc>`>a}<esc>`<i{<esc>=a{``
+" }}}
