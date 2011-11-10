@@ -117,6 +117,13 @@ if has("autocmd")
 	  autocmd bufwritepost $MYVIMRC :echom "Lastest vimrc loaded!"
 
   augroup END
+
+  augroup python_ex
+	  au!
+	  autocmd FileType python setlocal expandtab 
+	  autocmd FileType python setlocal softtabstop=4 
+  augroup END
+
 else
 
   set autoindent		" always set autoindenting on
