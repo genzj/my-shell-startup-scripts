@@ -36,6 +36,10 @@ alias cscope-from-list='cscope -bki'
 alias cscope-create-list='find \( -iname "*.c*" -o -iname "*.h" -o -iname "*.mk" -o -iname "*.mak" -o -iname "*.make" -o -iname "*.s" -o -iname "*.ia" -o -iname "*.inc" \) -exec echo \"{}\" \;  >cscope.files'
 ##################################################
 
+##################################################
+##################### CVS  ######################
+alias cvs-n-update='cvs -n update 2>/dev/null'
+alias cvs-diff-less='cvs -n diff 2>/dev/null | less'
 
 ##################################################
 ################## vim related  ##################
